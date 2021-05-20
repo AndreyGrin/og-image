@@ -60,12 +60,12 @@ function getCss(image: string) {
     }
 
     .price {
-        background: rgba(0,0,0,.74);
+        background: ${foreground};
         color: white;
         font-family: 'Inter', sans-serif;
-        font-size: 30px;
+        font-size: 50px;
         font-style: normal;
-        padding: 20px;
+        padding: 15px 20px;
         border-radius: 10px;
         position: fixed;
         left: 60px;
@@ -80,7 +80,7 @@ function getCss(image: string) {
         line-height: 1.8;
         background: white;
         text-align: center;
-        padding: 15px 80px;
+        padding: 15px;
         position: fixed;
         bottom: 0;
         left: 0;
