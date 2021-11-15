@@ -22,7 +22,8 @@ export default async function handler(req: IncomingMessage, res: ServerResponse)
             const animationMatches = body.match(/[0-9]{1,5}(ms)/);
 
             if( animationMatches.length ){
-                delay = Math.round(parseInt(animationMatches[0].replace('ms', '')) * 0.6);
+                delay = Math.round(parseInt(animationMatches[0].replace('ms', '')) * 0.75);
+                delay = delay <= 6000 ? delay : 6000; // max 6 seconds for free plan
             }
         }
 

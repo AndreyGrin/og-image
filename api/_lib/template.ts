@@ -91,9 +91,13 @@ function getCss(image: string) {
 }
 
 export function getHtml(parsedReq: ParsedRequest) {
-    const { text, image, price } = parsedReq;
+    let { text, image, price } = parsedReq;
 
     let priceHtml = price && price !== 'undefined' ? '<div class="price">'+price+'</div>' : '';
+    
+    if( image === 'undefined' ){
+        image = 'https://nft.kodadot.xyz/kodadot_carbonless.jpg';
+    }
 
     return `<!DOCTYPE html>
 <html>
@@ -101,7 +105,7 @@ export function getHtml(parsedReq: ParsedRequest) {
     <title>Generated Image</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
-        ${getCss(image || 'https://nft.kodadot.xyz/kodadot_carbonless.jpg')}
+        ${getCss( image )}
     </style>
     <body>
         <div>
