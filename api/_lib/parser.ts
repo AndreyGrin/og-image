@@ -5,7 +5,7 @@ import { ParsedRequest } from './types';
 export function parseRequest(req: IncomingMessage) {
     console.log('HTTP ' + req.url);
     const { pathname, query } = parse(req.url || '/', true);
-    const { price, image } = (query || {});
+    const { price, image, mime } = (query || {});
 
     if (Array.isArray(price)) {
         throw new Error('Expected a single price');
@@ -31,7 +31,8 @@ export function parseRequest(req: IncomingMessage) {
         fileType: extension === 'jpeg' ? extension : 'png',
         text: decodeURIComponent(text),
         image: image || '',
-        price: price || ''
+        price: price || '',
+        mime: mime || ''
     };
     return parsedRequest;
 }

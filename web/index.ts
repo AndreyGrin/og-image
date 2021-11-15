@@ -122,6 +122,7 @@ interface AppState extends ParsedRequest {
     messageToast: string;
     image: string;
     price: string;
+    mime: string;
     overrideUrl: URL | null;
 }
 
@@ -144,6 +145,7 @@ const App = (_: any, state: AppState, setState: SetState) => {
         text = '**Hello** World',
         image='',
         price = '',
+        mime='',
         showToast = false,
         messageToast = '',
         loading = true,
@@ -154,6 +156,7 @@ const App = (_: any, state: AppState, setState: SetState) => {
 
     url.searchParams.append('price', price);
     url.searchParams.append('image', image);
+    url.searchParams.append('mime', mime);
 
     return H('div',
         { className: 'split' },
@@ -195,6 +198,16 @@ const App = (_: any, state: AppState, setState: SetState) => {
                         oninput: (val: string) => {
                             console.log('oninput ' + val);
                             setLoadingState({ image: val, overrideUrl: url });
+                        }
+                    })
+                }),
+                H(Field, {
+                    label: 'NFT mime type',
+                    input: H(TextInput, {
+                        value: mime,
+                        oninput: (val: string) => {
+                            console.log('oninput ' + val);
+                            setLoadingState({ mime: val, overrideUrl: url });
                         }
                     })
                 })

@@ -77,9 +77,9 @@ function getCss(image: string) {
         font-family: 'Inter', sans-serif;
         font-size: 80px;
         font-style: normal;
-        color: ${foreground};
+        color: white;
         line-height: 1.8;
-        background: rgba(255,255,255,.7);
+        background: rgba(0,0,0,.6);
         text-align: center;
         padding: 15px;
         position: fixed;
@@ -101,7 +101,7 @@ export function getHtml(parsedReq: ParsedRequest) {
     <title>Generated Image</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
-        ${getCss(image)}
+        ${getCss(image || 'https://nft.kodadot.xyz/kodadot_carbonless.jpg')}
     </style>
     <body>
         <div>
