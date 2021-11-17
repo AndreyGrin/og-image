@@ -16,7 +16,7 @@ export default async function handler(req: IncomingMessage, res: ServerResponse)
 
         let delay = 0;
 
-        if( mime === 'svg+xml' && image ){
+        if( mime.indexOf('svg+xml') >= 0 && image ){
             const response = await fetch(image);
             const body = await response.text();
             const animationMatches = body.match(/[0-9]{1,5}(ms)/);
