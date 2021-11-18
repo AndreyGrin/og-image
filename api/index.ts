@@ -15,6 +15,7 @@ export default async function handler(req: IncomingMessage, res: ServerResponse)
         const { fileType, mime, image } = parsedReq;
 
         let delay = 0;
+        let cacheTime = 3153600;
 
         if( mime.indexOf('svg+xml') >= 0 && image ){
             const response = await fetch(image);
@@ -24,6 +25,7 @@ export default async function handler(req: IncomingMessage, res: ServerResponse)
             if( animationMatches.length ){
                 delay = Math.round(parseInt(animationMatches[0].replace('ms', '')) * 0.75);
                 delay = delay <= 6000 ? delay : 6000; // max 6 seconds for free plan
+                cacheTime = 86400;
             }
         }
 
@@ -36,7 +38,7 @@ export default async function handler(req: IncomingMessage, res: ServerResponse)
         const file = await getScreenshot(html, fileType, isDev, delay);
         res.statusCode = 200;
         res.setHeader('Content-Type', `image/${fileType}`);
-        res.setHeader('Cache-Control', `public, immutable, no-transform, s-maxage=2592000, max-age=2592000`);
+        res.setHeader('Cache-Control', `public, immutable, no-transform, s-maxage=${cacheTime}, max-age=${cacheTime}`);
         res.end(file);
     } catch (e) {
         res.statusCode = 500;
