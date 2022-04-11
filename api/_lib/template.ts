@@ -105,7 +105,7 @@ export function getHtml(parsedReq: ParsedRequest) {
             <div class="imageWrapper">    
                ${ priceHtml }
                <div class="label logo">
-                    <img src="https://raw.githubusercontent.com/kodadot/kodadot-presskit/main/v3/kodadot_dot_outline_logo.png" height=80 />
+                    <img src="https://raw.githubusercontent.com/kodadot/kodadot-presskit/main/v3/KODA_v3.png" height=80 />
                </div>
             </div>
         </div>
