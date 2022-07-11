@@ -56,10 +56,10 @@ function getCss(image: string) {
         padding: 12px 24px;
         border-radius: 12px;
         position: fixed;
-        border: .5px solid #fff;
     }
 
     .logo {
+        position: fixed;
         left: 60px;
         bottom: 60px;
         padding: 5px;
