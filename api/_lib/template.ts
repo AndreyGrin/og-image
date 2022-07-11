@@ -58,7 +58,7 @@ function getCss(image: string) {
         position: fixed;
     }
 
-    .logo {
+    .label.logo {
         display: inline-block;
         position: fixed;
         left: 60px;
@@ -101,7 +101,7 @@ export function getHtml(parsedReq: ParsedRequest) {
         <div>
             <div class="imageWrapper">    
                ${ priceHtml }
-               <div class="logo">
+               <div class="label logo">
                     <img src="https://raw.githubusercontent.com/kodadot/kodadot-presskit/main/v3/KODA_v3_white.png" height=80 />
                </div>
             </div>
