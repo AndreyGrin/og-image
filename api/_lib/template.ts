@@ -59,6 +59,7 @@ function getCss(image: string) {
     }
 
     .logo {
+        display: inline-block;
         position: fixed;
         left: 60px;
         bottom: 60px;
