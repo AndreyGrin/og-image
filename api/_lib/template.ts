@@ -8,7 +8,7 @@ const mono = readFileSync(`${__dirname}/../_fonts/Vera-Mono.woff2`).toString('ba
 
 function getCss(image: string) {
     let background = 'rgba(0,0,0,.74)';
-    let foreground = '#000';
+    let foreground = '#363636';
 
     return `
     @font-face {
@@ -53,13 +53,13 @@ function getCss(image: string) {
         font-family: 'Inter', sans-serif;
         font-size: 50px;
         font-style: normal;
-        padding: 15px 20px;
-        border-radius: 10px;
+        padding: 12px 24px;
+        border-radius: 12px;
         position: fixed;
         border: .5px solid #fff;
     }
 
-    .label.logo {
+    .logo {
         left: 60px;
         bottom: 60px;
         padding: 5px;
@@ -75,10 +75,6 @@ function getCss(image: string) {
         right: 60px;
         bottom: 60px;
     }
-
-    .label.logo svg {
-        margin-bottom: -4px;
-    }
     
     `;
 }
@@ -89,7 +85,7 @@ export function getHtml(parsedReq: ParsedRequest) {
     let priceHtml = price && price !== 'undefined' ? '<div class="label price">'+price+'</div>' : '';
     
     if( image === 'undefined' ){
-        image = 'https://nft.kodadot.xyz/kodadot_carbonless.jpg';
+        image = 'https://kodadot.xyz/kodadot_card_root.png';
     }
 
     return `<!DOCTYPE html>
@@ -104,8 +100,8 @@ export function getHtml(parsedReq: ParsedRequest) {
         <div>
             <div class="imageWrapper">    
                ${ priceHtml }
-               <div class="label logo">
-                    <img src="https://raw.githubusercontent.com/kodadot/kodadot-presskit/main/v3/KODA_v3.png" height=80 />
+               <div class="logo">
+                    <img src="https://raw.githubusercontent.com/kodadot/kodadot-presskit/main/v3/KODA_v3_white.png" height=80 />
                </div>
             </div>
         </div>
